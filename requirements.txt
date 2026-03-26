@@ -1,0 +1,4 @@
+# ---- Core testing libraries ----
+selenium==4.41.0
+behave==1.3.3
+allure-behave==2.15.3
