@@ -187,7 +187,9 @@ Feature: Login Functionality
 #    And I enter "pavanoltraining@gmail.com" into the "E-Mail Address" field
 #    And I enter "12345" into the "Password" field
 #    And I click the "Login" button
-#    Then I should be logged in and taken to the "Account" page
+#    And I wait for 30 minutes without performing anything on the application
+#    And I try to perform an action on the application
+#    Then I should be automatically logged out
 
   @TC_LF_019 @regression @navigation
   Scenario: TC_LF_019 - Navigation to different pages from the Login page
