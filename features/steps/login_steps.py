@@ -1,3 +1,6 @@
+import random
+import string
+
 from behave import given, when, then
 from selenium.webdriver.common.keys import Keys
 
@@ -312,4 +315,19 @@ def step_assert_session_active(context):
 def step_login_with_valid_credentials(context):
     context.login_page.login(context.email, context.password)
 
+@when('I click the "Login" button {times:d} times with the same invalid credentials')
+def step_click_login_button_multiple_times(context, times):
+    context.login_page.click_login_button_multiple_times(times)
 
+@given('I have a random invalid email and invalid password for lockout testing')
+def step_setup_lockout_credentials(context):
+    context.invalid_email = f"user{''.join(random.choices(string.digits, k=4))}@example.com"
+    context.invalid_password = "123456"
+
+@when('I enter the invalid email into the "E-Mail Address" field')
+def step_enter_invalid_email(context):
+    context.login_page.enter_email(context.invalid_email)
+
+@when('I enter the invalid password into the "Password" field')
+def step_enter_invalid_password(context):
+    context.login_page.enter_password(context.invalid_password)

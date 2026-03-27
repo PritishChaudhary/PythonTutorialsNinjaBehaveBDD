@@ -20,6 +20,7 @@ class LoginPage(BasePage):
     CONTINUE_BUTTON         = (By.XPATH, "//input[@value='Continue']")
     BREADCRUMB              = (By.XPATH, "//ul[@class='breadcrumb']")
     LOGIN_PAGE_HEADING      = (By.XPATH, "//h2[normalize-space()='Returning Customer']")
+    LOCKOUT_WARNING_MESSAGE = (By.XPATH, "//div[@class='alert alert-danger alert-dismissible']")
 
     def click_right_column_login(self):
         self.wait_for_element_visible(self.RIGHT_COLUMN_LOGIN).click()
@@ -138,3 +139,11 @@ class LoginPage(BasePage):
                 "Warning" in error.text and
                 "account/login" in self.driver.current_url
         )
+
+    def click_login_button_multiple_times(self, times: int):
+        for _ in range(times):
+            self.click(self.LOGIN_BUTTON)
+            self.wait_for_element_visible(self.WARNING_MESSAGE)
+
+    def get_warning_message(self) -> str:
+        return self.get_text(self.LOCKOUT_WARNING_MESSAGE)

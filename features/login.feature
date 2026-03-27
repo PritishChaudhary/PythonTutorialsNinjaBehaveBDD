@@ -126,14 +126,15 @@ Feature: Login Functionality
     And I click the "Login" button
     Then I should not be able to log in to the application
 
-#  @TC_LF_012 @regression @negative @security
-#  Scenario: TC_LF_012 - Account lockout warning after exceeding the maximum allowed login attempts
-#    When I click on "My Account" dropmenu
-#    And I click on "Login" option
-#    And I enter "xyzabc123@gmail.com" into the "E-Mail Address" field
-#    And I enter "xyzabc123" into the "Password" field
-#    And I click the "Login" button 5 times with the same invalid credentials
-#    Then I should see a warning message "Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour."
+  @TC_LF_012 @regression @negative @security
+  Scenario: TC_LF_012 - Account lockout warning after exceeding the maximum allowed login attempts
+    Given I have a random invalid email and invalid password for lockout testing
+    When I click on "My Account" dropmenu
+    And I click on "Login" option
+    And I enter the invalid email into the "E-Mail Address" field
+    And I enter the invalid password into the "Password" field
+    And I click the "Login" button 6 times with the same invalid credentials
+    Then I should see a warning message "Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour."
 
   @TC_LF_013 @regression @security @ui
   Scenario: TC_LF_013 - Password masking applied to characters typed in the Password field
