@@ -14,8 +14,6 @@ class LoginPage(BasePage):
     RIGHT_COLUMN_LOGIN      = (By.XPATH, "//a[@class='list-group-item'][normalize-space()='Login']")
     WARNING_MESSAGE         = (By.XPATH, "//div[contains(@class,'alert-danger')]")
 
-    # MY_ACCOUNT_HEADING      = (By.XPATH, "//h2[normalize-space()='My Account']")
-    FORGOTTEN_PWD_HEADING   = (By.XPATH, "//h1[normalize-space()='Forgot Your Password?']")
     REGISTER_ACCOUNT_HEADING = (By.XPATH, "//h1[normalize-space()='Register Account']")
     CHANGE_PASSWORD_LINK    = (By.LINK_TEXT, "Change your password")
     PASSWORD_CONFIRM_FIELD  = (By.ID, "input-confirm")
@@ -80,9 +78,6 @@ class LoginPage(BasePage):
 
     def is_forgotten_password_link_displayed(self) -> bool:
         return self.is_displayed(self.FORGOTTEN_PASSWORD_LINK)
-
-    def is_forgotten_password_page_displayed(self) -> bool:
-        return self.is_displayed(self.FORGOTTEN_PWD_HEADING)
 
     def get_email_placeholder(self) -> str:
         return self.get_placeholder(self.EMAIL_ADDRESS_FIELD)

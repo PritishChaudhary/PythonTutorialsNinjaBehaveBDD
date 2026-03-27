@@ -184,7 +184,7 @@ def step_assert_forgotten_password_link_visible(context):
 
 @then('I should be taken to the "Forgotten Password" page')
 def step_assert_on_forgotten_password_page(context):
-    assert context.login_page.is_forgotten_password_page_displayed(), \
+    assert context.forgotten_password_page.is_forgotten_password_page_displayed(), \
         "I was not taken to the 'Forgotten Password' page"
 
 

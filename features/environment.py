@@ -4,6 +4,7 @@ import sys
 
 from features.pages.account_success_page import AccountSuccessPage
 from features.pages.change_password_page import ChangePasswordPage
+from features.pages.forgotten_password_page import ForgottenPasswordPage
 from features.pages.my_account_page import MyAccountPage
 from features.pages.register_page import RegisterAccountPage
 
@@ -46,6 +47,7 @@ def before_scenario(context, scenario):
     context.register_page = RegisterAccountPage(context.driver, context.explicit_wait)
     context.change_password_page = ChangePasswordPage(context.driver, context.explicit_wait)
     context.account_success_page = AccountSuccessPage(context.driver, context.explicit_wait)
+    context.forgotten_password_page = ForgottenPasswordPage(context.driver, context.explicit_wait)
 
     os.makedirs(context.screenshot_dir, exist_ok=True)
 

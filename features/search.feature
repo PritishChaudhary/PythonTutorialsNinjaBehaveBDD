@@ -9,7 +9,7 @@ Feature: Search Functionality
 
 
   @TC_SF_001 @smoke @regression
-  Scenario Outline: TC_SF_001 - I can find a product when I search using an existing product name
+  Scenario Outline: TC_SF_001 - Successful product search using an existing product name
     When I type "<product_name>" into the Search text box
     And I click the Search icon button
     Then I should see "<product_name>" displayed in the search results
@@ -20,7 +20,7 @@ Feature: Search Functionality
 
 
   @TTC_SF_002 @regression @negative
-  Scenario Outline: TC_SF_002 - I see a no-results message when I search for a product that does not exist
+  Scenario Outline: TC_SF_002 - No results message displayed when searching for a non-existent product
     When I type "<product_name>" into the Search text box
     And I click the Search icon button
     Then I should see the message "There is no product that matches the search criteria." on the Search Results page
@@ -31,14 +31,14 @@ Feature: Search Functionality
 
 
   @TC_SF_003 @regression @negative
-  Scenario: TC_SF_003 - I see a no-results message when I click Search without typing anything
+  Scenario: TC_SF_003 - No results message displayed when Search is submitted with an empty search box
     When I leave the Search text box empty
     And I click the Search icon button
     Then I should see the message "There is no product that matches the search criteria." on the Search Results page
 
 
   @TC_SF_004 @regression
-  Scenario Outline: TC_SF_004 - I can search for a product after I log in to the application
+  Scenario Outline: TC_SF_004 - Successful product search after logging in to the application
     Given I am logged in with email "john3456@gmail.com" and password "12345"
     When I type "<product_name>" into the Search text box
     And I click the Search icon button
@@ -50,7 +50,7 @@ Feature: Search Functionality
 
 
   @TC_SF_005 @regression
-  Scenario Outline: TC_SF_005 - I see multiple products when my search criteria matches more than one product
+  Scenario Outline: TC_SF_005 - Multiple products displayed when search criteria matches more than one product
     When I type "<search_criteria>" into the Search text box
     And I click the Search icon button
     Then I should see more than one product displayed in the search results
@@ -61,7 +61,7 @@ Feature: Search Functionality
 
 
   @TC_SF_006 @regression @ui
-  Scenario: TC_SF_006 - I can see placeholder text in both the Search text box and the Search Criteria field
+  Scenario: TC_SF_006 - Placeholder text visibility in the Search text box and the Search Criteria field
     When I leave the Search text box empty
     And I click the Search icon button
     Then I should see proper placeholder text in the Search text box
@@ -69,7 +69,7 @@ Feature: Search Functionality
 
 
   @TC_SF_007 @regression
-  Scenario: TC_SF_007 - I can find a product by typing in the Search Criteria field on the Search page
+  Scenario: TC_SF_007 - Successful product search using the Search Criteria field on the Search page
     When I leave the Search text box empty
     And I click the Search icon button
     And I type "HP" into the "Search Criteria" field on the Search page
@@ -78,7 +78,7 @@ Feature: Search Functionality
 
 
   @TC_SF_008 @regression
-  Scenario: TC_SF_008 - I can find a product by searching using text from its description
+  Scenario: TC_SF_008 - Successful product search using text from a product description
     When I leave the Search text box empty
     And I click the Search icon button
     And I type "iLife" into the "Search Criteria" field on the Search page
@@ -88,7 +88,7 @@ Feature: Search Functionality
 
 
   @TC_SF_009 @regression
-  Scenario: TC_SF_009 - I can find a product by selecting the correct category but get no results with a wrong category
+  Scenario: TC_SF_009 - Search results with correct category selection and no results with an incorrect category
     When I leave the Search text box empty
     And I click the Search icon button
     And I type "iMac" into the "Search Criteria" field on the Search page
@@ -101,7 +101,7 @@ Feature: Search Functionality
 
 
   @TC_SF_010 @regression
-  Scenario: TC_SF_010 - I can find a product in a subcategory when I check the Search in subcategories option
+  Scenario: TC_SF_010 - Successful product search in a subcategory using the Search in subcategories option
     When I leave the Search text box empty
     And I click the Search icon button
     And I type "iMac" into the "Search Criteria" field on the Search page
@@ -114,7 +114,7 @@ Feature: Search Functionality
 
 
   @TC_SF_011 @regression @ui
-  Scenario: TC_SF_011 - I can switch between List and Grid views when a single product is shown in the results
+  Scenario: TC_SF_011 - List and Grid view switching for a single product in the search results
     When I type "iMac" into the Search text box
     And I click the Search icon button
     And I click the "List" view button
@@ -131,7 +131,7 @@ Feature: Search Functionality
 
 
   @TC_SF_012 @regression @ui
-  Scenario: TC_SF_012 - I can switch between List and Grid views when multiple products are shown in the results
+  Scenario: TC_SF_012 - List and Grid view switching for multiple products in the search results
     When I type "Mac" into the Search text box
     And I click the Search icon button
     Then I should see more than one product displayed in the search results
@@ -142,7 +142,7 @@ Feature: Search Functionality
 
 
   @TC_SF_013 @regression @navigation
-  Scenario: TC_SF_013 - I can navigate to the Product Compare page from the Search Results page
+  Scenario: TC_SF_013 - Navigation to the Product Compare page from the Search Results page
     When I type "iMac" into the Search text box
     And I click the Search icon button
     And I click the "Product Compare" link
@@ -150,7 +150,7 @@ Feature: Search Functionality
 
 
   @TC_SF_014 @regression
-  Scenario: TC_SF_014 - I can sort the products displayed in the Search Results using the Sort By dropdown
+  Scenario: TC_SF_014 - Product sorting in the Search Results using the Sort By dropdown
     When I type "Mac" into the Search text box
     And I click the Search icon button
     Then I should see more than one product displayed in the search results
@@ -159,7 +159,7 @@ Feature: Search Functionality
 
 
   @TC_SF_015 @regression
-  Scenario: TC_SF_015 - I can choose how many products are displayed per page in the Search Results
+  Scenario: TC_SF_015 - Control over the number of products displayed per page in the Search Results
     When I type "Mac" into the Search text box
     And I click the Search icon button
     Then I should see more than one product displayed in the search results
@@ -168,34 +168,34 @@ Feature: Search Functionality
 
 
   @TC_SF_016 @regression @ui
-  Scenario: TC_SF_016 - I can see the Search text box and Search icon button on every page of the application
+  Scenario: TC_SF_016 - Search text box and Search icon button visibility on every page of the application
     When I navigate through all the pages of the application
     Then I should see the Search text box and the Search icon button on every page
 
 
   @TC_SF_017 @regression @navigation
-  Scenario: TC_SF_017 - I can navigate to the Search page by clicking the Search link on the Site Map page
+  Scenario: TC_SF_017 - Navigation to the Search page via the Search link on the Site Map page
     When I click the "Site Map" link in the footer
     And I click the "Search" link on the Site Map page
     Then I should be taken to the "Search" page
 
 
   @TC_SF_018 @regression @ui
-  Scenario: TC_SF_018 - I can see a correct Breadcrumb on the Search Results page
+  Scenario: TC_SF_018 - Correct breadcrumb display on the Search Results page
     When I type "iMac" into the Search text box
     And I click the Search icon button
     Then I should see the Breadcrumb working correctly on the Search Results page
 
 
   @TC_SF_019 @regression
-  Scenario: TC_SF_019 - I can perform the Search operation and interact with options using Tab and Enter keys
+  Scenario: TC_SF_019 - Successful Search operation and option interaction using Tab and Enter keyboard keys
     When I use the Tab and Enter keys to perform a Search operation
     And I use the keyboard to select options on the Search page
     Then I should be able to complete the Search operation using only the keyboard
 
 
   @TC_SF_020 @regression @ui
-  Scenario: TC_SF_020 - I can see the correct page heading, URL and title on the Search Results page
+  Scenario: TC_SF_020 - Correct page heading, URL and title on the Search Results page
     When I type "HP" into the Search text box
     And I click the Search icon button
     Then I should see a proper Page Heading on the Search page
@@ -204,7 +204,7 @@ Feature: Search Functionality
 
 
   @TC_SF_021 @regression @ui
-  Scenario: TC_SF_021 - The Search functionality and Search page options look correct and match the UI checklist
+  Scenario: TC_SF_021 - Search functionality and Search page options UI validation against the UI checklist
     When I type "HP" into the Search text box
     And I click the Search icon button
     Then I should see the Search page UI matching the UI checklist
@@ -212,7 +212,7 @@ Feature: Search Functionality
 
 
   @TC_SF_022 @regression @cross-browser
-  Scenario: TC_SF_022 - I can use the Search functionality correctly in all supported environments
+  Scenario: TC_SF_022 - Search functionality across all supported environments
     When I type "HP" into the Search text box
     And I click the Search icon button
     Then I should see the Search functionality working correctly in my current environment
