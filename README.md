@@ -24,21 +24,21 @@ PythonTutorialsNinjaBehaveBDD/
 │   └── config.ini
 ├── features/
 │   ├── pages/
-│   │   ├── base\_page.py
-│   │   ├── home\_page.py
-│   │   ├── login\_page.py
-│   │   ├── register\_page.py
-│   │   ├── my\_account\_page.py
-│   │   ├── account\_success\_page.py
-│   │   ├── change\_password\_page.py
-│   │   └── search\_page.py
+│   │   ├── base_page.py
+│   │   ├── home_page.py
+│   │   ├── login_page.py
+│   │   ├── register_page.py
+│   │   ├── my_account_page.py
+│   │   ├── account_success_page.py
+│   │   ├── change_password_page.py
+│   │   └── search_page.py
 │   ├── steps/
-│   │   ├── login\_steps.py
-│   │   ├── search\_steps.py
-│   │   └── end\_to\_end\_steps.py
+│   │   ├── login_steps.py
+│   │   ├── search_steps.py
+│   │   └── end_to_end_steps.py
 │   ├── utils/
-│   │   ├── config\_reader.py
-│   │   └── driver\_factory.py
+│   │   ├── config_reader.py
+│   │   └── driver_factory.py
 │   ├── environment.py
 │   ├── login.feature
 │   └── search.feature
@@ -74,7 +74,7 @@ behave features/login.feature
 behave features/search.feature
 
 # Single test case
-behave --tags=@TC\_001
+behave --tags=@TC_LF_001
 
 # By module
 behave --tags=@Login
@@ -95,7 +95,7 @@ behave --stop
 ## Allure Report
 
 ```bash
-behave -f allure\_behave.formatter:AllureFormatter -o results/allure-results
+behave -f allure_behave.formatter:AllureFormatter -o results/allure-results
 allure serve results/allure-results
 ```
 
